@@ -23,6 +23,6 @@ public abstract class Vegetable{
 
     @Override
     public String toString() {
-        return weight +" g, kCs=" + kiloCalories;
+        return weight +" g, kCs=" + countKiloCalories();
     }
 }

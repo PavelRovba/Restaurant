@@ -58,4 +58,12 @@ public class SaladCooker {
                 ", \ntotal Calories=" + salad.getTotalCalories() + ", salat with VegetableOil = " +
                 salad.isWithVegetableOil() + ",cooked by " + this.name);
     }
+    public void findByCaloriesBetween(Salad salad,double a,double b){
+        ArrayList<Vegetable> ingredients = salad.getIngredients();
+        ingredients.removeIf(v -> v.countKiloCalories() <= a || v.countKiloCalories() >= b);
+        if (ingredients.size()!=0){
+        System.out.println("\n" +
+            "Founded Vegetables " + ingredients.toString());}
+        else System.out.println("Not founded vegetables");
+    }
 }

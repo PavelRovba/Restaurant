@@ -1,5 +1,6 @@
 import Cookers.SaladCooker;
 import Salads.Salad;
+import Vegetables.Tomato;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,10 +17,10 @@ public class SaladCookerTest {
     }
 
     @Test
-    public void countCaloriesWhenAtStartTotalCalories400ThenAdded100GramsOil() {
+    public void countCaloriesWhenAtStartTotalCalories400ThenAdded500GramsOfTomatoes() {
         salad.setTotalCalories(400);
-        saladCooker.addVegetableOil(salad,100);
-        assertEquals(1284, saladCooker.countCalories(salad),0.001);
+        saladCooker.addIngredients(salad,new Tomato(500));
+        assertEquals(495, saladCooker.countCalories(salad),0.001);
     }
 
     @Test

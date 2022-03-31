@@ -14,5 +14,7 @@ public class Main {
         john.showInfo(salad);
         john.sortByCalories(salad);
         john.sortByWeight(salad);
+        john.findByCaloriesBetween(salad,10,300);
+
     }
 }
