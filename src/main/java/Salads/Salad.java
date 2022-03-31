@@ -37,11 +37,8 @@ public class Salad {
         return ingredients.size();
     }
 
-    public void addIngredients(Vegetable... v) {
-        Collections.addAll(ingredients, v);
-    }
-    public void addIngredient(Vegetable v){
-        Collections.addAll(ingredients,v);
+    public void setIngredients(ArrayList<Vegetable> ingredients) {
+        this.ingredients = ingredients;
     }
 
     public void setNumberOfIngredients(int numberOfIngredients) {

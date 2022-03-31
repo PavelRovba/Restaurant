@@ -4,6 +4,8 @@ import Salads.Salad;
 import Vegetables.Vegetable;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class SaladCooker {
@@ -17,12 +19,10 @@ public class SaladCooker {
         return new Salad(name);
     }
 
-    public void addIngredients(Salad salad, Vegetable... v) {
-        salad.addIngredients(v);
-    }
-
-    public void addIngredient(Salad salad, Vegetable v) {
-        salad.addIngredient(v);
+    public void addIngredients(Salad salad, Vegetable ... v) {
+        ArrayList<Vegetable> vegetables = salad.getIngredients();
+        Collections.addAll(vegetables,v);
+        salad.setIngredients(vegetables);
     }
 
     public double countCalories(Salad salad) {
@@ -41,23 +41,13 @@ public class SaladCooker {
 
     public void sortByCalories(Salad salad) {
         ArrayList<Vegetable> ingredients = salad.getIngredients();
-        ingredients.sort(new Comparator<Vegetable>() {
-            @Override
-            public int compare(Vegetable v1, Vegetable v2) {
-                return (int) (v1.getKiloCalories() - v2.getKiloCalories());
-            }
-        });
+        ingredients.sort((v1, v2) -> (int) (v1.getKiloCalories() - v2.getKiloCalories()));
         System.out.println("Sorted by Calories: " + ingredients.toString());
     }
 
     public void sortByWeight(Salad salad) {
         ArrayList<Vegetable> ingredients = salad.getIngredients();
-        ingredients.sort(new Comparator<Vegetable>() {
-            @Override
-            public int compare(Vegetable v1, Vegetable v2) {
-                return (int) (v1.getWeight() - v2.getWeight());
-            }
-        });
+        ingredients.sort((v1, v2) -> (int) (v1.getWeight() - v2.getWeight()));
         System.out.println("Sorted by Weight: " + ingredients.toString());
     }
 
